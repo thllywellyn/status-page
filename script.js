@@ -1,4 +1,4 @@
-const API_KEY = "YOUR_UPTIMEROBOT_API_KEY";
+const API_KEY = "u2087289-165655ede6169c02fa041e78";
 const PROXY_URL = "https://uptime-router.lsana.workers.dev";
 const API_URL = "https://api.uptimerobot.com/v2/getMonitors";
 const monitorList = document.getElementById("monitor-list");
