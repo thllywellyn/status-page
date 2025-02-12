@@ -11,7 +11,7 @@ function fetchStatus() {
     fetch(`${PROXY_URL}?url=${encodeURIComponent(API_URL)}`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `api_key=${API_KEY}&format=json&logs=1`
+        body: `api_key=${API_KEY}&format=json&logs=1&all_time_uptime_ratio=1`
     })
     .then(response => response.json())
     .then(data => {
@@ -19,13 +19,15 @@ function fetchStatus() {
         let allOnline = true;
 
         data.monitors.forEach(monitor => {
+            const uptime = monitor.all_time_uptime_ratio || "N/A";
+            const statusClass = monitor.status === 2 ? "online" : "offline";
+            
             const li = document.createElement("li");
+            li.classList.add(statusClass);
             li.innerHTML = `
                 <span>${monitor.friendly_name}</span>
-                <span>${monitor.uptime || "0.00"}%</span>
-                <span class="${monitor.status === 2 ? "online" : "offline"}">
-                    ${monitor.status === 2 ? "🟢 Up" : "🔴 Down"}
-                </span>
+                <span>${uptime}%</span>
+                <span class="status">${monitor.status === 2 ? "🟢 Up" : "🔴 Down"}</span>
             `;
             if (monitor.status !== 2) allOnline = false;
             monitorList.appendChild(li);
