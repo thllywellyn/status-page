@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #4CAF50, #1e1e1e);
+    background:#1e1e1e;
     color: #fff;
     text-align: center;
     padding: 0;
@@ -77,7 +77,7 @@ header p {
 }
 
 .monitor-list li.online .status {
-    background-color: #4CAF50;
+    background-color: #09560c;
     color: white;
 }
 
