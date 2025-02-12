@@ -3,12 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uptime Monitor</title>
+    <title>Status | Llywellyn Labs</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Monitor Status</h1>
-    <ul id="monitor-list"></ul>
+    <div class="container">
+        <header>
+            <h1>Status | Llywellyn Labs</h1>
+            <p id="status-summary">Checking system status...</p>
+            <p class="last-updated">Last updated <span id="last-updated">--:--:--</span> | Next update in <span id="countdown">--</span> sec.</p>
+        </header>
+
+        <section class="status-table">
+            <h2>Services</h2>
+            <ul id="monitor-list"></ul>
+        </section>
+
+        <footer>
+            <button id="fullscreen-btn">Fullscreen Mode</button>
+            <button id="alert-sound-btn">🔊 Alert Sound <span id="sound-status">Off</span></button>
+        </footer>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
