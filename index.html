@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Llywellyn Labs System Status Page - Check the current status of our services">
+    <meta name="theme-color" content="#1e1e1e">
     <link rel="icon" href="https://webf.lsanalab.xyz/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Status | Llywellyn Labs</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,14 +13,25 @@
     <div class="container">
         <header>
             <h1>Site Status</h1>
-            <p id="status-summary">Checking system status...</p>
-            <p class="last-updated">Last updated <span id="last-updated">--:--:--</span> | Next update in <span id="countdown">--</span> sec.</p>
+            <p id="status-summary" aria-live="polite">Checking system status...</p>
+            <p class="last-updated">
+                Last updated <span id="last-updated" aria-label="Last updated time">--:--:--</span> 
+                | Next update in <span id="countdown" aria-label="Countdown to next update">--</span> sec.
+            </p>
         </header>
 
         <section class="status-cards">
             <h2>Services</h2>
-            <div id="monitor-list" class="monitor-list"></div>
+            <div id="monitor-list" class="monitor-list">
+                <div class="loading-skeleton">Loading services...</div>
+            </div>
         </section>
+
+        <footer>
+            <div id="theme-toggle" class="theme-toggle" role="button" tabindex="0" aria-label="Toggle dark/light theme">
+                🌙
+            </div>
+        </footer>
     </div>
 
     <script src="script.js"></script>
